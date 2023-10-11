@@ -26,6 +26,6 @@ jobs:
       working-directory: TypeScript
       run: npm install
 
-    - name: name: Build and test
+    - name: Test
       working-directory: TypeScript
-      run: npm run build && npm test
+      run: npm test
