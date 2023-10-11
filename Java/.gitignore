@@ -1,0 +1,16 @@
+target/
+.project
+.settings/
+.classpath
+junit-report
+junit
+ProfilerMessage.java
+temp-war-deps
+*.bak
+*.scc
+*.xap
+DebugLog.*
+*.orig
+.idea
+*.iml
+.DS_Store
