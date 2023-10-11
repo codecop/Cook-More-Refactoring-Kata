@@ -1,0 +1,20 @@
+{
+    "name": "cook-more-refactoring",
+    "version": "1.0.0",
+    "author": "Peter 'Code Cop' Kofler",
+    "license": "BSD",
+    "type": "module",
+    "devDependencies": {
+        "@types/jest": "^26.0.0",
+        "@types/node": "^10.0.0",
+        "jest": "^26.0.0",
+        "ts-jest": "^26.0.0",
+        "ts-node": "^10.0.0",
+        "typescript": "^4.3.2"
+    },
+    "scripts": {
+        "test": "jest",
+        "build": "tsc",
+        "test:coverage": "jest --coverage"
+    }
+}
