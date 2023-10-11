@@ -1,4 +1,4 @@
-/** @type {import ('@jest/types').Config.InitialOptions} */
+/** @type {import ("@jest/types").Config.InitialOptions} */
 module.exports = {
-    preset: 'ts-jest',
+    preset: "ts-jest",
 }
