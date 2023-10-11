@@ -18,39 +18,39 @@ import minimal.model.Recipe;
 public class Database {
 
     private final List<Ingredient> ingredients = new ArrayList<>();
-    private final List<Name> recipies = new ArrayList<>();
-    private final Map<Name, Recipe> recipiesByName = new HashMap<>();
+    private final List<Name> recipes = new ArrayList<>();
+    private final Map<Name, Recipe> recipesByName = new HashMap<>();
 
     public Database() {
         ingredients.addAll(Arrays.asList(Ingredient.of("Egg"), Ingredient.of("Cheese"), Ingredient.of("Salt")));
 
-        Name omelett = named("Omelett");
+        Name omelette = named("Omelette");
         Name hamAndEggs = named("Ham and Eggs");
-        recipies.addAll(Arrays.asList(omelett, hamAndEggs, named("Sandwich")));
-        recipiesByName.put(omelett, new Recipe(omelett, named("Egg"), named("Cheese")));
-        recipiesByName.put(hamAndEggs, new Recipe(hamAndEggs, named("Bacon"), named("Egg")));
+        recipes.addAll(Arrays.asList(omelette, hamAndEggs, named("Sandwich")));
+        recipesByName.put(omelette, new Recipe(omelette, named("Egg"), named("Cheese")));
+        recipesByName.put(hamAndEggs, new Recipe(hamAndEggs, named("Bacon"), named("Egg")));
     }
 
     public List<Ingredient> selectIngredients() {
         return ingredients;
     }
 
-    public List<Name> selectAllRecipies() {
-        return recipies;
+    public List<Name> selectAllRecipes() {
+        return recipes;
     }
 
     public Recipe selectRecipeFor(Name meal) {
-        return recipiesByName.get(meal);
+        return recipesByName.get(meal);
     }
 
     public void insertRecipe(Recipe recipe) {
-        recipies.add(recipe.nameOfMeal());
-        recipiesByName.put(recipe.nameOfMeal(), recipe);
+        recipes.add(recipe.nameOfMeal());
+        recipesByName.put(recipe.nameOfMeal(), recipe);
     }
 
     public void removeRecipe(Name nameOfMeal) {
-        recipies.remove(nameOfMeal);
-        recipiesByName.remove(nameOfMeal);
+        recipes.remove(nameOfMeal);
+        recipesByName.remove(nameOfMeal);
     }
 
 }

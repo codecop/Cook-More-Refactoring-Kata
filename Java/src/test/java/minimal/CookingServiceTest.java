@@ -21,7 +21,7 @@ public class CookingServiceTest {
     private static final Name EGG = named("Egg");
     private static final Name CHEESE = named("Cheese");
     private static final Name SALT = named("Salt");
-    private static final Name OMELETT = named("Omelett");
+    private static final Name OMELETTE = named("Omelette");
 
     private CookingService cookingService = new CookingService();
 
@@ -54,16 +54,16 @@ public class CookingServiceTest {
 
     @Test
     public void testHowToCook() {
-        Recipe omelett = cookingService.howToCook(OMELETT);
+        Recipe omelette = cookingService.howToCook(OMELETTE);
 
-        assertNotNull(omelett);
-        assertEquals(Arrays.asList(EGG, CHEESE), omelett.listIngredients());
+        assertNotNull(omelette);
+        assertEquals(Arrays.asList(EGG, CHEESE), omelette.listIngredients());
     }
 
     @Test
     public void testTakeOutAllFor() {
-        Recipe omelett = cookingService.howToCook(OMELETT);
-        List<Ingredient> ingredients = cookingService.takeOutAllFor(omelett);
+        Recipe omelette = cookingService.howToCook(OMELETTE);
+        List<Ingredient> ingredients = cookingService.takeOutAllFor(omelette);
 
         assertEquals(Arrays.asList(Ingredient.of(EGG), Ingredient.of(CHEESE)), ingredients);
     }
@@ -81,14 +81,14 @@ public class CookingServiceTest {
 
     @Test
     public void testremoveFromCookbook() {
-        cookingService.removeFromCookbook(OMELETT);
+        cookingService.removeFromCookbook(OMELETTE);
 
-        assertFalse("no Omelet", cookingService.getCookbook().tableOfContents().contains(OMELETT));
+        assertFalse("no Omelet", cookingService.getCookbook().tableOfContents().contains(OMELETTE));
     }
 
     @Test(expected = NoSuchIngredientException.class)
     public void testremoveFromCookbook2() {
-        cookingService.removeFromCookbook(OMELETT);
-        cookingService.takeOut(OMELETT);
+        cookingService.removeFromCookbook(OMELETTE);
+        cookingService.takeOut(OMELETTE);
     }
 }

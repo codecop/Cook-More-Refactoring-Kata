@@ -58,7 +58,7 @@ public class CookingService {
     }
 
     private List<Name> listAllRecipes() {
-        return database.selectAllRecipies();
+        return database.selectAllRecipes();
     }
 
     public Recipe howToCook(Name meal) {
