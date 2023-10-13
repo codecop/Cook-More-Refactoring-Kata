@@ -80,14 +80,14 @@ public class CookingServiceTest {
     }
 
     @Test
-    public void testremoveFromCookbook() {
+    public void testRemoveFromCookbook() {
         cookingService.removeFromCookbook(OMELETTE);
 
         assertFalse("no Omelet", cookingService.getCookbook().tableOfContents().contains(OMELETTE));
     }
 
     @Test(expected = NoSuchIngredientException.class)
-    public void testremoveFromCookbook2() {
+    public void testRemoveFromCookbookTwice() {
         cookingService.removeFromCookbook(OMELETTE);
         cookingService.takeOut(OMELETTE);
     }
