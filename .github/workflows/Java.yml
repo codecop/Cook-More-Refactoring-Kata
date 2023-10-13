@@ -31,3 +31,7 @@ jobs:
     - name: Build and test
       working-directory: Java
       run: mvn -B test
+
+    - name: Run
+      working-directory: Java
+      run: mvn exec:java

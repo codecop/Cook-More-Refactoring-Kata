@@ -29,3 +29,7 @@ jobs:
     - name: Test
       working-directory: PHP
       run: ./vendor/bin/phpunit
+
+    - name: Run
+      working-directory: PHP
+      run: composer start

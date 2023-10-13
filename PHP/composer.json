@@ -20,6 +20,7 @@
         }
     },
     "scripts": {
+        "start": "php ./src/Client.php",
         "test": "phpunit",
         "tests": "phpunit"
     },
