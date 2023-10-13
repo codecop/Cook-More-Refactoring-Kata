@@ -5,6 +5,7 @@ namespace Minimal;
 use Minimal\Model\Cookbook;
 use Minimal\Model\Meal;
 use Minimal\Model\Name;
+use Minimal\Model\NoSuchIngredientException;
 use Minimal\Model\Pot;
 use Minimal\Model\Recipe;
 
@@ -65,11 +66,10 @@ class Client
         // I like extra Salt in everything
         $pot->add($this->cookingService->takeOut(Name::named("Salt")));
     }
+}
 
-    public static function main()
-    {
-        $client = new Client(new CookingService());
-        $client->eatDinnerWithWhatWeHaveAtHome();
-    }
-
+if (basename(__FILE__) === basename($_SERVER['SCRIPT_FILENAME'])) {
+    require __DIR__ . '/../vendor/autoload.php';
+    $client = new Client(new CookingService());
+    $client->eatDinnerWithWhatWeHaveAtHome();
 }

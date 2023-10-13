@@ -6,8 +6,8 @@ use Minimal\Dao\Database;
 use Minimal\Model\Cookbook;
 use Minimal\Model\Ingredient;
 use Minimal\Model\Name;
+use Minimal\Model\NoSuchIngredientException;
 use Minimal\Model\Recipe;
-use Minimal\Model\WeCanNotCookAnythingException;
 
 class CookingService
 {

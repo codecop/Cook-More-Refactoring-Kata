@@ -27,8 +27,8 @@ class Database
         $hamAndEggs = Name::named("Ham and Eggs");
         $this->recipes = [$omelette, $hamAndEggs, Name::named("Sandwich")];
 
-        $this->recipesByName[$omelette] = new Recipe($omelette, Name::named("Egg"), Name::named("Cheese"));
-        $this->recipesByName[$hamAndEggs] = new Recipe($hamAndEggs, Name::named("Bacon"), Name::named("Egg"));
+        $this->recipesByName[$omelette->__toString()] = new Recipe($omelette, Name::named("Egg"), Name::named("Cheese"));
+        $this->recipesByName[$hamAndEggs->__toString()] = new Recipe($hamAndEggs, Name::named("Bacon"), Name::named("Egg"));
     }
 
     public function selectIngredients(): array
@@ -43,13 +43,13 @@ class Database
 
     public function selectRecipeFor(Name $meal): Recipe
     {
-        return $this->recipesByName[$meal];
+        return $this->recipesByName[$meal->__toString()];
     }
 
     public function insertRecipe(Recipe $recipe)
     {
         $this->recipes[] = $recipe->nameOfMeal();
-        $this->recipesByName[$recipe->nameOfMeal()] = $recipe;
+        $this->recipesByName[$recipe->nameOfMeal()->__toString()] = $recipe;
     }
 
     public function removeRecipe(Name $nameOfMeal)
@@ -58,6 +58,6 @@ class Database
         if ($index !== false) {
             unset($this->recipes[$index]);
         }
-        unset($this->recipesByName[$nameOfMeal]);
+        unset($this->recipesByName[$nameOfMeal->__toString()]);
     }
 }

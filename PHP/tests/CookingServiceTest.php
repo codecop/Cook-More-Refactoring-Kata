@@ -7,6 +7,7 @@ use Minimal\Model\Name;
 use Minimal\Model\Ingredient;
 use Minimal\Model\Recipe;
 use Minimal\Model\Cookbook;
+use Minimal\Model\NoSuchIngredientException;
 use Minimal\Dao\Database;
 
 class CookingServiceTest extends TestCase
@@ -69,9 +70,14 @@ class CookingServiceTest extends TestCase
     public function testTakeOutAllFor()
     {
         $omelette = $this->cookingService->howToCook(self::$OMELETTE);
+        
         $ingredients = $this->cookingService->takeOutAllFor($omelette);
 
-        $expectedIngredients = [Ingredient::of(self::$EGG), Ingredient::of(self::$CHEESE)];
+        $egg = Ingredient::of(self::$EGG);
+        $egg->ensureOpened();
+        $cheese = Ingredient::of(self::$CHEESE);
+        $cheese->ensureOpened();
+        $expectedIngredients = [$egg, $cheese];
         $this->assertEquals($expectedIngredients, $ingredients);
     }
 
@@ -91,6 +97,7 @@ class CookingServiceTest extends TestCase
         $this->cookingService->removeFromCookbook(self::$OMELETTE);
 
         $cookbook = $this->cookingService->getCookbook();
+        
         $this->assertFalse(in_array(self::$OMELETTE, $cookbook->tableOfContents()));
     }
 

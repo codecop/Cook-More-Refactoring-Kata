@@ -22,6 +22,7 @@ class Ingredient
     private function __construct(Name $name)
     {
         $this->name = $name;
+        $this->opened = false;
     }
 
     public function name(): Name
